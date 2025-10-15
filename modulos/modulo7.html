@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 7: Laboratorio de Prompts</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header class="module-header">
+        <a href="../index.html" class="back-link">Volver al Índice</a>
+        <h1>Módulo 7: Laboratorio de Prompts: ¡Construye y Califica!</h1>
+    </header>
+
+    <main>
+        <div class="module-content">
+            <div class="lab-section">
+                <h3>Herramienta 1: Asistente Guiado</h3>
+                <p>Usa estos campos para construir tu prompt paso a paso.</p>
+                <div class="form-group">
+                    <label for="prompt-role">Paso 1: Asigna un Rol</label>
+                    <input type="text" id="prompt-role" placeholder="Ej: Actúa como un experto en vinos">
+                </div>
+                <div class="form-group">
+                    <label for="prompt-task">Paso 2: Define la Tarea</label>
+                    <input type="text" id="prompt-task" placeholder="Ej: crea una descripción para un vino tinto">
+                </div>
+                <div class="form-group">
+                    <label for="prompt-context">Paso 3: Añade Contexto y Detalles</label>
+                    <textarea id="prompt-context" placeholder="Ej: es un Malbec de Argentina, cosecha 2022, con notas de ciruela y chocolate."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="prompt-format">Paso 4: Especifica el Formato</label>
+                    <input type="text" id="prompt-format" placeholder="Ej: en un párrafo corto y atractivo">
+                </div>
+                <button id="generate-prompt-btn">Generar mi Prompt</button>
+                <div class="generated-prompt-container">
+                    <label>Tu prompt generado (puedes editarlo):</label>
+                    <textarea id="final-prompt-output"></textarea>
+                </div>
+            </div>
+
+            <hr class="lab-divider">
+
+            <div class="lab-section">
+                <h3>Herramienta 2: Calificador de Práctica Libre</h3>
+                <p>Escribe tu propio prompt desde cero y comprueba qué tan bueno es.</p>
+                <textarea id="qualifier-input" placeholder="Escribe aquí tu prompt..."></textarea>
+                <button id="qualify-prompt-btn">Analizar mi Prompt</button>
+                <div id="qualifier-results">
+                    <!-- Los resultados del análisis aparecerán aquí -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <nav class="module-nav">
+        <a href="modulo6.html" class="nav-link prev">← Módulo Anterior</a>
+    </nav>
+
+    <script src="../script.js"></script>
+</body>
+</html>

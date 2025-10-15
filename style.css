@@ -1,90 +1,169 @@
+/* --- Global Styles --- */
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     line-height: 1.6;
     background-color: #f4f7f9;
     color: #333;
     margin: 0;
-    padding: 20px;
-}
-
-header {
-    text-align: center;
-    margin-bottom: 40px;
-    border-bottom: 2px solid #e0e0e0;
-    padding-bottom: 20px;
-}
-
-h1 {
-    font-size: 2.5em;
-    color: #005a9c;
+    padding: 0;
 }
 
 main {
     max-width: 800px;
-    margin: 0 auto;
+    margin: 40px auto;
+    padding: 20px;
 }
 
-.topic {
+h1, h2, h3 {
+    color: #005a9c;
+}
+
+/* --- General Header --- */
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+header p {
+    font-size: 1.1em;
+    color: #666;
+}
+
+/* --- Index Page Styles --- */
+.course-index h2 {
+    text-align: center;
+    font-size: 2em;
+}
+
+.course-index > p {
+    text-align: center;
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 40px;
+}
+
+.module-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.module-item {
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 8px;
-    margin-bottom: 20px;
+    padding: 25px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    overflow: hidden; /* To contain the border-radius */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.topic-title {
-    font-size: 1.5em;
+.module-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.module-item h3 {
+    margin-top: 0;
+    font-size: 1.6em;
+}
+
+.btn-module {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+}
+
+.btn-module:hover {
+    background-color: #0056b3;
+}
+
+/* --- Module Page Styles --- */
+.module-header {
     padding: 20px;
-    margin: 0;
-    cursor: pointer;
     background-color: #f9f9f9;
-    border-bottom: 1px solid #ddd;
-    transition: background-color 0.3s ease;
+    border-bottom: 2px solid #e0e0e0;
 }
 
-.topic-title:hover {
-    background-color: #f0f0f0;
+.back-link {
+    display: inline-block;
+    margin-bottom: 15px;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
 }
 
-.topic-content {
-    padding: 0 20px;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s ease-out, padding 0.5s ease-out;
+.back-link:hover {
+    text-decoration: underline;
 }
 
-.topic-content.active {
-    padding: 20px;
-    max-height: 1500px; /* Increased max-height for the new lab section */
-    transition: max-height 0.7s ease-in, padding 0.7s ease-in;
+.module-header h1 {
+    text-align: center;
+    font-size: 2.2em;
 }
 
-ul {
-    padding-left: 20px;
+.module-content {
+    background-color: #fff;
+    padding: 25px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
 }
 
-li {
-    margin-bottom: 10px;
+.module-content h4 {
+    font-size: 1.4em;
+    margin-top: 30px;
 }
 
-/* --- Styles for Practice Section --- */
+.module-nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
 
-textarea#practice-input {
+.nav-link {
+    padding: 10px 25px;
+    border: 1px solid #007bff;
+    color: #007bff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.nav-link:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+/* --- Lab & Practice Styles (Re-used) --- */
+textarea#practice-input, #qualifier-input {
     width: 100%;
-    box-sizing: border-box; /* Important for padding and border */
+    box-sizing: border-box;
     padding: 10px;
     font-size: 1em;
     border-radius: 5px;
     border: 1px solid #ccc;
     margin-top: 10px;
-    min-height: 80px;
+    min-height: 120px;
     font-family: inherit;
+    resize: vertical;
 }
 
-button#practice-button {
+button#practice-button, #generate-prompt-btn, #qualify-prompt-btn {
     display: block;
-    margin-top: 10px;
+    margin-top: 15px;
     padding: 10px 20px;
     font-size: 1em;
     color: #fff;
@@ -95,20 +174,21 @@ button#practice-button {
     transition: background-color 0.3s ease;
 }
 
-button#practice-button:hover {
+button#practice-button:hover, #generate-prompt-btn:hover, #qualify-prompt-btn:hover {
     background-color: #0056b3;
 }
 
-#ai-response {
+#ai-response, #qualifier-results {
     margin-top: 20px;
     padding: 15px;
-    background-color: #e9f5ff;
-    border: 1px solid #b3d7f2;
     border-radius: 5px;
-    display: none; /* Hidden by default */
 }
 
-/* --- Styles for Prompt Laboratory --- */
+#ai-response {
+    background-color: #e9f5ff;
+    border: 1px solid #b3d7f2;
+    display: none;
+}
 
 .lab-section h3 {
     color: #005a9c;
@@ -127,8 +207,7 @@ button#practice-button:hover {
     margin-bottom: 5px;
 }
 
-.form-group input[type="text"],
-.form-group textarea {
+.form-group input[type="text"], .form-group textarea {
     width: 100%;
     padding: 8px;
     border: 1px solid #ccc;
@@ -140,7 +219,6 @@ button#practice-button:hover {
 
 .form-group textarea {
     min-height: 100px;
-    resize: vertical;
 }
 
 .generated-prompt-container {
@@ -159,18 +237,9 @@ button#practice-button:hover {
     border-top: 2px solid #e0e0e0;
 }
 
-#qualifier-input {
-    width: 100%;
-    min-height: 120px;
-    resize: vertical;
-}
-
 #qualifier-results {
-    margin-top: 20px;
-    padding: 15px;
     background-color: #f8f9fa;
     border: 1px solid #ddd;
-    border-radius: 5px;
 }
 
 #qualifier-results ul {

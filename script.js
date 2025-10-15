@@ -1,23 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-    // --- Accordion functionality ---
-    const topicTitles = document.querySelectorAll('.topic-title');
-    topicTitles.forEach(title => {
-        title.addEventListener('click', () => {
-            const content = title.nextElementSibling;
-            const isActive = content.classList.contains('active');
-            // Close all other topics first
-            topicTitles.forEach(otherTitle => {
-                otherTitle.nextElementSibling.classList.remove('active');
-            });
-            // If the clicked topic was not already active, open it
-            if (!isActive) {
-                content.classList.add('active');
-            }
-        });
-    });
-
-    // --- Original Practice section functionality ---
+    // --- Logic for Practice Section (Módulo 6) ---
     const practiceButton = document.getElementById('practice-button');
     if (practiceButton) {
         const practiceInput = document.getElementById('practice-input');
@@ -44,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // --- Prompt Laboratory Functionality ---
+    // --- Logic for Prompt Laboratory (Módulo 7) ---
 
     // 1. Assistant Logic
     const generateBtn = document.getElementById('generate-prompt-btn');
